@@ -1,6 +1,6 @@
-# Places
+# To Do List
 
-#### _Places Visited, 01/19/18_
+#### _To do list, 01/19/18_
 
 #### _**Andy Grossberg and Michael Albers**_
 
@@ -10,64 +10,37 @@ _This is the Monday Project for Week Four of Intro to Programming at Epicodus_
 
 ## Location
 
-You can find this file at https://github.com/agro23/address-book or
-https://github.com/mikealbers/address-book
+You can find this file at https://github.com/agro23/to-do or
+https://github.com/mikealbers/to-do
 
-## Rules for the Address book assignment
+## Rules for the To-do assignment
 
-* Create a website where you can keep track of all the places you've been.
-* Each destination should be an object with multiple properties:
-    * location
-    * date visited
-    * landmarks
-    * (season) time of year
-    * notes
-* Display those properties when a user clicks on a place's name.
-
-* Complete the business logic for the place object first, before tackling the user interface.
+* Make a to do list webpage where people can add tasks to create a list of things to do. Add an option for users to indicate a task is done. Use jQuery to remove the task from the "to do" list. Make sure to identify specific behaviors your program should demonstrate, and create specifications with example input and output.
 
 ## Methodology
 
 ### _The following specs are included in the program:_
 
-* Business logic for the Place object - X
+* Get input via form.
+    input: <list item>
+    output: <list item>
 
-* Establish a sample place as a new instance of the Place object - X
+* Add item to list (array).
 
-* Display the .name property to the console - X
+* Show item list to user.
+    output: <item>
 
-* Make and fill a second object. - X
+* Add radio called 'completed' to form.
 
-* Make array of locations - X
+* Activate radio (strike through string element).
 
-* Create a function to add a Location object to the array - X
+* Add kill box.
 
-* Empty form on submit - X
+* Activate kill box (eliminate string element with splice();).
 
-* Show a list of the entered places - X
+* Create UI.
 
-* Show list of entered places names only, all in uppercase. - X
-
-* Show the list of places and show whole record when clicked - X
-
-* format appearance -X
-
-* indicate what is a link via css - X
-
-* Validate input of city name
-
-* User Can:
-  * Add place to list - X
-  * Show place by name - X
-  * Delete place from list - X
-
-* Activate each choice - X
-
-* Validate all form input
-
-* Make the HTML pretty - X
-
-* Refactor and clean up code
+* Refactor code.
 
 ## Setup/Installation Requirements
 
