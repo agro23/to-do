@@ -6,3 +6,13 @@
 .container {
   margin-top: 6em;
 }
+
+.killMe {
+  display: block;
+}
+
+.checkbox {
+  display: block;
+  padding: 1em;
+  margin: 2em;
+}

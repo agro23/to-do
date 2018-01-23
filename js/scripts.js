@@ -10,52 +10,33 @@ function Item (name, done) { // Place constructer
 };
 
 function clearForm(){
-  $("#name").val("");
+  // $("#item").val("");
+  $("#list")[0].reset();
 }
 
-function showItemByName(){
+function showItemsByName(){
 // if item.done is true then strikethrough the text via CSS by adding the class "done" to it
-  var itemsList = "";
+  var myList = "";
   var killButtons = "";
-  console.log ("These are the places you've visited:");
-  for (i=0; i<places.length; i++){
-    // placesList = placesList + "<col-lg-11><p class='clickable' id='place" + i + "'>" + places[i].name.toUpperCase() + "</p>"+"<col-lg-1 id='kill'>X</col>";
-    placesList = placesList + "<p class='clickable' id='place" + i + "'>" + places[i].name.toUpperCase() + "</p>";
+  var checkBoxes = "";
+  console.log ("These are the items on your list:");
+  for (i=0; i<itemsList.length; i++){
+    checkBoxes = checkBoxes + "<input class='checkbox' id='check" + i + "' type='checkbox' width='15'>"
+    myList = myList + "<p id='item" + i + "'>" + itemsList[i].name.toUpperCase() + "</p>";
     killButtons = killButtons + '<button type="button" name="button" class="btn-danger killMe" id="kill'+i+'"' + '>X</button>';
 }
-  console.log("places list: " + placesList);
-  $("#viewport").html(placesList+"<br>");
-  $("#killButtons").html(killButtons + "<br");
-}
+  console.log("items list: " + myList);
+  $("#checkBoxes").html(checkBoxes + "<br>")
+  $("#listView").html(myList+"<br>");
+  $("#killButtons").html(killButtons + "<br>");
 
-// function nameClicked(index){
-//   var myLocation = "";
-//     myLocation = myLocation + places[index].name + "<br>"
-//     myLocation = myLocation + places[index].date + "<br>"
-//     myLocation = myLocation + places[index].landmark + "<br>"
-//     myLocation = myLocation + places[index].season + "<br>"
-//     myLocation = myLocation + places[index].note + "<br>"
-//   $("#recordView").html(myLocation);
-// }
+}
 
 function addItemToList (name) { // input values from form
-  var myPlace = new Place(index, name, date, landmark, season, note);
-  places.push(myPlace);
-  console.log("Added: " + myPlace.name);
-}
-
-function placeClicked(){
-  $(".clickable").click(function(event){
-    event.preventDefault();
-    x = this.id[this.id.length -1];
-    var record = "";
-      record = record + places[x].name + "<br>"
-      record = record + places[x].date + "<br>"
-      record = record + places[x].landmark + "<br>"
-      record = record + places[x].season + "<br>"
-      record = record + places[x].note + "<br>"
-    $('#recordView').html(record);
-  });
+  // note program assumes added items are NOT completed.
+  var myItem = new Item(name, false);
+  itemsList.push(myItem);
+  console.log("Added: " + myItem.name);
 }
 
 function killClicked(){
@@ -63,10 +44,11 @@ function killClicked(){
     event.preventDefault();
     x = this.id[this.id.length -1]; // x is the index of the kill button
     console.log("killButtons x: " + x);
-    console.log("Places String is: " + places[x].name);
+    console.log("Items String is: " + itemsList[x].name);
     console.log("Killbuttons is: " + killButtons);
-    places.splice(x, 1);
-    showPlacesByName();
+    itemsList.splice(x, 1);
+    showItemsByName();
+    clearForm();
     killClicked();
   });
 };
@@ -77,17 +59,19 @@ $(document).ready(function() {
   $('form#list').submit(function(event){
     event.preventDefault();
     console.log("Got the list item: " + $("#item").val());
-    // addItemToList($("#item").val());
-    // show the list
+    addItemToList($("#item").val());
+    showItemsByName();
+    clearForm();
+    killClicked();
   });
 
   $(".killMe").click(function(event){
     event.preventDefault();
     x = this.id[this.id.length -1]; // x is the index of the kill button
     console.log("killButtons x: " + x);
-    console.log("Places String is: " + places[x].name);
-    places.splice(x, 1);
-    showPlacesByName();
+    console.log("itemsList String is: " + itemsList[x].name);
+    itemsList.splice(x, 1);
+    showItemsByName();
   });
 
 });
