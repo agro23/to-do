@@ -21,9 +21,9 @@ function showItemsByName(){
   var checkBoxes = "";
   console.log ("These are the items on your list:");
   for (i=0; i<itemsList.length; i++){
-    checkBoxes = checkBoxes + "<input class='checkbox' id='check" + i + "' type='checkbox' width='15'>"
-    myList = myList + "<p id='item" + i + "'>" + itemsList[i].name.toUpperCase() + "</p>";
-    killButtons = killButtons + '<button type="button" name="button" class="btn-danger killMe" id="kill'+i+'"' + '>X</button>';
+    checkBoxes = checkBoxes + "<div class='someChecks'><input class='checkbox' id='check" + i + "' type='checkbox' width='15'></div>"
+    myList = myList + "<div class='someItems' id='item" + i + "'>" + itemsList[i].name.toUpperCase() + "</div>";
+    killButtons = killButtons + '<div><button type="button" name="button" class="btn-danger killMe" id="kill'+i+'"' + '>X</button></div>';
 }
   console.log("items list: " + myList);
   $("#checkBoxes").html(checkBoxes + "<br>")

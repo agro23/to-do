@@ -7,12 +7,21 @@
   margin-top: 6em;
 }
 
+.someChecks {
+  margin: auto;
+  padding: 1.5px;
+  align-self: center;
+}
+
 .killMe {
   display: block;
 }
 
+.someItems {
+  font-size: 1em;
+}
 .checkbox {
   display: block;
-  padding: 1em;
-  margin: 2em;
+  padding: 1.5em;
+  margin: 1em;;
 }
